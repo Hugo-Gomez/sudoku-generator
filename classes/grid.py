@@ -77,49 +77,27 @@ class Grid:
         else:
             return True
 
-    # Needs optimization
     def build_squares_coordinates(self):
         squares = []
 
-        square_one = []
-        square_two = []
-        square_three = []
-        square_four = []
-        square_five = []
-        square_six = []
-        square_seven = []
-        square_eight = []
-        square_nine = []
-        for r in range(0, 3):
-            for c in range(0, 3):
-                square_one.append((r, c))
-            for c in range(3, 6):
-                square_two.append((r, c))
-            for c in range(6, 9):
-                square_three.append((r, c))
-        squares.append(square_one)
-        squares.append(square_two)
-        squares.append(square_three)
-        for r in range(3, 6):
-            for c in range(0, 3):
-                square_four.append((r, c))
-            for c in range(3, 6):
-                square_five.append((r, c))
-            for c in range(6, 9):
-                square_six.append((r, c))
-        squares.append(square_four)
-        squares.append(square_five)
-        squares.append(square_six)
-        for r in range(6, 9):
-            for c in range(0, 3):
-                square_seven.append((r, c))
-            for c in range(3, 6):
-                square_eight.append((r, c))
-            for c in range(6, 9):
-                square_nine.append((r, c))
-        squares.append(square_seven)
-        squares.append(square_eight)
-        squares.append(square_nine)
+        r_min, r_max = 0, 3
+
+        for _ in range(0, 3):
+            s1 = []
+            s2 = []
+            s3 = []
+            for r in range(r_min, r_max):
+                for c in range(0, 3):
+                    s1.append((r, c))
+                for c in range(3, 6):
+                    s2.append((r, c))
+                for c in range(6, 9):
+                    s3.append((r, c))
+            squares.append(s1)
+            squares.append(s2)
+            squares.append(s3)
+            r_min += 3
+            r_max += 3
 
         return squares
 
